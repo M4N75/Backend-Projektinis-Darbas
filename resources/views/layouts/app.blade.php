@@ -60,7 +60,15 @@
                                     {{ Auth::user()->username }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
+                                    @if ( Auth::user()->status === 1 )
+                                        <a class="dropdown-item" href="/admin/user-list">Vartotoju sarasas [ADMIN]</a>
+                                        <a class="dropdown-item" href="/admin/strawpoll-list">Balsavimu sarasas [ADMIN]</a>   
+                                        <hr>                                     
+                                    @endif
+                                    <a class="dropdown-item" href="/create-strawpoll">Naujas Balsavimas</a>
+                                    <a class="dropdown-item" href="/my-strawpolls">{{ Auth::user()->username }} balsavimai</a>
+                                    <hr>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
